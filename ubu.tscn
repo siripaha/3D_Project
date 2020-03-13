@@ -1,0 +1,330 @@
+[gd_scene load_steps=45 format=2]
+
+[ext_resource path="res://model/color/Ground037_2K_Color.jpg" type="Texture" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Target.tscn" type="PackedScene" id=3]
+[ext_resource path="res://model/color/Bricks026_2K_Color.jpg" type="Texture" id=4]
+[ext_resource path="res://model/91959f0181e1444cb75068d81789c128.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://model/color/PaintedPlaster001_2K_Color.jpg" type="Texture" id=6]
+[ext_resource path="res://model/color/PaintedPlaster002_2K_Color.jpg" type="Texture" id=7]
+[ext_resource path="res://model/color/PaintedPlaster003_2K_Color.jpg" type="Texture" id=8]
+[ext_resource path="res://model/color/Leather014_2K_Color.jpg" type="Texture" id=9]
+[ext_resource path="res://Turret.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Health_Pickup.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Ammo_Pickup.tscn" type="PackedScene" id=12]
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 100, 100 )
+
+[sub_resource type="SpatialMaterial" id=27]
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="ConcavePolygonShape" id=2]
+data = PoolVector3Array( 50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50 )
+
+[sub_resource type="CubeMesh" id=12]
+
+[sub_resource type="SpatialMaterial" id=28]
+albedo_texture = ExtResource( 4 )
+
+[sub_resource type="BoxShape" id=22]
+
+[sub_resource type="SpatialMaterial" id=29]
+albedo_texture = ExtResource( 4 )
+
+[sub_resource type="BoxShape" id=23]
+
+[sub_resource type="SpatialMaterial" id=30]
+albedo_texture = ExtResource( 4 )
+
+[sub_resource type="BoxShape" id=24]
+
+[sub_resource type="SpatialMaterial" id=31]
+albedo_texture = ExtResource( 4 )
+
+[sub_resource type="BoxShape" id=25]
+
+[sub_resource type="SpatialMaterial" id=32]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=33]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="RayShape" id=26]
+
+[sub_resource type="BoxShape" id=11]
+
+[sub_resource type="CubeMesh" id=13]
+
+[sub_resource type="SpatialMaterial" id=34]
+albedo_texture = ExtResource( 6 )
+
+[sub_resource type="BoxShape" id=14]
+
+[sub_resource type="SpatialMaterial" id=35]
+albedo_texture = ExtResource( 7 )
+
+[sub_resource type="BoxShape" id=15]
+
+[sub_resource type="SpatialMaterial" id=36]
+albedo_texture = ExtResource( 8 )
+
+[sub_resource type="BoxShape" id=16]
+
+[sub_resource type="CubeMesh" id=17]
+
+[sub_resource type="SpatialMaterial" id=37]
+albedo_texture = ExtResource( 9 )
+
+[sub_resource type="BoxShape" id=18]
+
+[sub_resource type="SpatialMaterial" id=38]
+albedo_texture = ExtResource( 9 )
+
+[sub_resource type="BoxShape" id=19]
+
+[sub_resource type="SpatialMaterial" id=39]
+albedo_texture = ExtResource( 9 )
+
+[sub_resource type="BoxShape" id=20]
+
+[sub_resource type="SpatialMaterial" id=40]
+albedo_texture = ExtResource( 9 )
+
+[sub_resource type="BoxShape" id=21]
+
+[node name="ubu" type="Spatial"]
+editor/display_folded = true
+
+[node name="room" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="room"]
+editor/display_folded = true
+transform = Transform( 0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 27 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody" type="StaticBody" parent="room/MeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="room/MeshInstance/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+
+[node name="targets" type="Spatial" parent="."]
+editor/display_folded = true
+
+[node name="Target_Whole" parent="targets" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.455, 47.2676 )
+
+[node name="Target_Whole2" parent="targets" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.768, 11.455, 47.2676 )
+
+[node name="Target_Whole3" parent="targets" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9257, 11.455, 47.2676 )
+
+[node name="box" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="box"]
+editor/display_folded = true
+transform = Transform( 13, 0, 0, 0, 7, 0, 0, 0, 2, -29.7294, 7.20279, -26.3266 )
+mesh = SubResource( 12 )
+material/0 = SubResource( 28 )
+
+[node name="StaticBody" type="StaticBody" parent="box/MeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="box/MeshInstance/StaticBody"]
+shape = SubResource( 22 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="box"]
+editor/display_folded = true
+transform = Transform( -5.68248e-007, 0, 2, 0, 7, 0, -13, 0, -8.74228e-008, -29.7294, 7.20279, -26.3266 )
+mesh = SubResource( 12 )
+material/0 = SubResource( 29 )
+
+[node name="StaticBody" type="StaticBody" parent="box/MeshInstance2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="box/MeshInstance2/StaticBody"]
+shape = SubResource( 23 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="box"]
+editor/display_folded = true
+transform = Transform( -5.68248e-007, 0, 2, 0, 7, 0, -13, 0, -8.74228e-008, 31.4069, 7.20279, -28.7482 )
+mesh = SubResource( 12 )
+material/0 = SubResource( 30 )
+
+[node name="StaticBody" type="StaticBody" parent="box/MeshInstance3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="box/MeshInstance3/StaticBody"]
+shape = SubResource( 24 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="box"]
+editor/display_folded = true
+transform = Transform( 13, 0, 0, 0, 7, 0, 0, 0, 2, 30.1624, 7.20279, -28.7482 )
+mesh = SubResource( 12 )
+material/0 = SubResource( 31 )
+
+[node name="StaticBody" type="StaticBody" parent="box/MeshInstance4"]
+
+[node name="CollisionShape" type="CollisionShape" parent="box/MeshInstance4/StaticBody"]
+shape = SubResource( 25 )
+
+[node name="Eiffel tower" type="MeshInstance" parent="box"]
+editor/display_folded = true
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 1.10227, -0.0667229, 0.90522 )
+mesh = ExtResource( 5 )
+material/0 = SubResource( 32 )
+material/1 = SubResource( 33 )
+material/2 = null
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody" type="StaticBody" parent="box/Eiffel tower"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape5" type="CollisionShape" parent="box/Eiffel tower/StaticBody"]
+transform = Transform( 0.389791, -0.00458572, 0.484485, 1.38144, 0.130423, -0.107874, -0.660369, 0.270128, 0.0603086, 1.73209, 15.1564, -4.51854 )
+shape = SubResource( 26 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2" type="CollisionShape" parent="box/Eiffel tower/StaticBody"]
+transform = Transform( -0.197336, 0.207735, 0.355287, 1.21709, 0.155716, -0.185209, -0.988008, 0.150329, -0.299113, 2.22574, 1.53102, 1.72138 )
+shape = SubResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape3" type="CollisionShape" parent="box/Eiffel tower/StaticBody"]
+transform = Transform( -0.700474, 0.00552013, -0.448083, 1.30579, 0.118642, -0.200364, 0.548316, -0.275488, -0.0952675, 2.06486, 1.24502, -2.03876 )
+shape = SubResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape4" type="CollisionShape" parent="box/Eiffel tower/StaticBody"]
+transform = Transform( 0.706545, -0.267772, -0.028925, 1.27871, 0.129392, -0.199372, 0.601756, 0.0394476, 0.457618, -2.13472, 1.18346, -2.02626 )
+shape = SubResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="box" type="MeshInstance" parent="box"]
+editor/display_folded = true
+transform = Transform( 5, 0, 0, 0, 3, 0, 0, 0, 5, -0.171288, 3.41949, 36.0878 )
+mesh = SubResource( 13 )
+material/0 = SubResource( 34 )
+
+[node name="StaticBody" type="StaticBody" parent="box/box"]
+
+[node name="CollisionShape" type="CollisionShape" parent="box/box/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 14 )
+
+[node name="box3" type="MeshInstance" parent="box"]
+editor/display_folded = true
+transform = Transform( 5, 0, 0, 0, 3, 0, 0, 0, 5, -27.9703, 3.28454, 36.0878 )
+mesh = SubResource( 13 )
+material/0 = SubResource( 35 )
+
+[node name="StaticBody" type="StaticBody" parent="box/box3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="box/box3/StaticBody"]
+shape = SubResource( 15 )
+
+[node name="box2" type="MeshInstance" parent="box"]
+editor/display_folded = true
+transform = Transform( 5, 0, 0, 0, 3, 0, 0, 0, 5, 29.5279, 3.35813, 36.0878 )
+mesh = SubResource( 13 )
+material/0 = SubResource( 36 )
+
+[node name="StaticBody" type="StaticBody" parent="box/box2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="box/box2/StaticBody"]
+shape = SubResource( 16 )
+
+[node name="MeshInstance5" type="MeshInstance" parent="box"]
+editor/display_folded = true
+transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 2, 0.0380373, 0.824683, 52.0749 )
+mesh = SubResource( 17 )
+material/0 = SubResource( 37 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody" type="StaticBody" parent="box/MeshInstance5"]
+
+[node name="CollisionShape" type="CollisionShape" parent="box/MeshInstance5/StaticBody"]
+shape = SubResource( 18 )
+
+[node name="MeshInstance6" type="MeshInstance" parent="box"]
+editor/display_folded = true
+transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 2, 0.0380373, 0.824683, -51.9183 )
+mesh = SubResource( 17 )
+material/0 = SubResource( 38 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody" type="StaticBody" parent="box/MeshInstance6"]
+
+[node name="CollisionShape" type="CollisionShape" parent="box/MeshInstance6/StaticBody"]
+shape = SubResource( 19 )
+
+[node name="MeshInstance7" type="MeshInstance" parent="box"]
+editor/display_folded = true
+transform = Transform( -2.18557e-006, 0, 2, 0, 1, 0, -50, 0, -8.74228e-008, -49.7223, 0.824683, -0.198246 )
+mesh = SubResource( 17 )
+material/0 = SubResource( 39 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody" type="StaticBody" parent="box/MeshInstance7"]
+
+[node name="CollisionShape" type="CollisionShape" parent="box/MeshInstance7/StaticBody"]
+shape = SubResource( 20 )
+
+[node name="MeshInstance8" type="MeshInstance" parent="box"]
+transform = Transform( -2.18557e-006, 0, 2, 0, 1, 0, -50, 0, -8.74228e-008, 51.9038, 0.824683, -0.198246 )
+mesh = SubResource( 17 )
+material/0 = SubResource( 40 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody" type="StaticBody" parent="box/MeshInstance8"]
+
+[node name="CollisionShape" type="CollisionShape" parent="box/MeshInstance8/StaticBody"]
+shape = SubResource( 21 )
+
+[node name="Turret" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.7725, 1.32529, 9.78507 )
+
+[node name="Turret2" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3302, 1.32529, 36.5003 )
+
+[node name="Turret3" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7863, 1.32529, 36.5003 )
+
+[node name="Turret4" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.4007, 1.32529, 13.7002 )
+
+[node name="Health_Pickup" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9561, 1.8307, -37.7333 )
+
+[node name="Health_Pickup2" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8046, 1.90837, -34.6669 )
+
+[node name="Ammo_Pickup" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.4303, 2.31972, -36.3285 )
+
+[node name="Ammo_Pickup2" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.4188, 2.15942, -35.3812 )
